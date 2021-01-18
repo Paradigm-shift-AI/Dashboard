@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./SignIn";
 import Dashboard from "./Dashboard";
+import Classa from "./components/ClassImprove"
 import Admin from "./Admin";
 import Lectures from "./Lectures";
 
@@ -20,7 +21,7 @@ function App() {
           <Lectures />
         </Route>
         <Route path="/">
-          <SignIn />
+          <Classa />
         </Route>
       </Switch>
     </Router>
