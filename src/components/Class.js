@@ -12,7 +12,7 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
-import {CourseContext} from "../Context";
+import CourseContext from "../Context";
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 function Class(props) {
   const course = useContext(CourseContext);
   console.log(course)
-
   const classes = useStyles();
   const strongtopics = ["Union", "Joins", "Cross Joins"];
   const weaktopics = ["Inner Join"];
@@ -43,10 +42,10 @@ function Class(props) {
     <Paper className={classes.fixedHeight}>
       <Breadcrumbs aria-label="breadcrumb">
         <Link component="h2" variant="h6" color="textPrimary" href="/dashboard">
-          {props.course}
+          {course}
         </Link>
         <Typography component="h2" variant="h6" color="inherit">
-          {props.class}
+          {/* {props.class} */}
         </Typography>
       </Breadcrumbs>
       <Paper variant="outlined" className={classes.card}></Paper>

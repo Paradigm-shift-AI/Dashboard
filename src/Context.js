@@ -1,9 +1,7 @@
 import React from "react";
 
-export const CourseContext = React.createContext();
+const CourseContext = React.createContext("Hello");
 
-export const CourseProvider = CourseContext.Provider
+export const CourseProvider = CourseContext.Provider;
 
-export const CourseConsumer = CourseContext.Consumer
-
-// export default CourseContext;
+export default CourseContext;

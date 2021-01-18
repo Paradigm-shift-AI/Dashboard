@@ -48,7 +48,7 @@ function Course(props) {
   const [classname, setClassname] = React.useState("class");
 
   return (
-    <CourseProvider value={{lecture:classname}}>
+    <CourseProvider value={classname}>
     <Paper className={classes.fixedHeight}>
       <FormControl variant="outlined" className={classes.formControl} >
         <InputLabel id="demo-simple-select-outlined-label">Course</InputLabel>
