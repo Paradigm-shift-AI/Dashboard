@@ -13,12 +13,14 @@ import Grid from "@material-ui/core/Grid";
 import Divider from '@material-ui/core/Divider';
 import CardImg from "../img/bookclub.jpg";
 import { CourseProvider } from "../Context";
+import ClassImprove from '../components/ClassImprove.js';
+import { withRouter } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 720,
     padding: "50px",
-    width: "70%",
+    width: "80%",
     marginLeft: "15%"
   },
   formControl: {
@@ -42,8 +44,8 @@ function Course(props) {
   const handleChange = (event) => {
     setCourse(event.target.value);
   };
-  const data = [{classname:"MySQL", asked: 14, flagged: 3, Date: "15 Jan 2021", Attendance: "53"},
-  {classname:"Cross Join", asked: 15, flagged: 3, Date: "16 Jan 2021", Attendance: "57"}]
+  const data = [{classname:"MySQL", asked: 14, flagged: 3, Date: "Wed, 13 Dec 2020", Attendance: "53"},
+  {classname:"Cross Join", asked: 15, flagged: 3, Date: "Wed, 15 Dec 2020", Attendance: "57"}]
   const courses = ["DBMS", "OS"];
   const [classname, setClassname] = React.useState("class");
 
@@ -68,36 +70,17 @@ function Course(props) {
         </Select>
       </FormControl>
       <Divider />
-      {data.map((el) => (
-        <Card className={classes.card}>
-        <CardActionArea onClick={() => {setClassname(el.classname); }} href="/lectures">
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {el.classname}
-            </Typography>
-            <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={6}>
-            <Typography variant="h5" component="h2">
-              Questions asked: {el.asked}
-              <br/>
-              Flagged questions: {el.flagged}
-            </Typography>
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-            <Typography variant="h5" component="h2">
-              Date: {el.Date}
-              <br/>
-              Attendance: {el.Attendance}
-            </Typography>
-            </Grid>
-            </Grid>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-      ))}
+      <Grid container spacing={2}>
+        {data.map((el) => (
+          <Grid style={{cursor: "pointer"}} item md={6} key={el.Date} onClick={() => {setClassname(el.classname); props.history.push("/lectures") }}>
+            <ClassImprove date={el.Date} attend={el.Attendance} totalQuestion={el.asked} flaggedQuestion={el.flagged}/>
+          </Grid>
+        ))}
+      </Grid>
+
     </Paper>
     </CourseProvider>
   );
 }
 
-export default Course;
+export default withRouter(Course);

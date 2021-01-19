@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Paper, Grid } from '@material-ui/core';
 import Logo from "../img/exam.svg";
 import Logo1 from "../img/red-flag.svg";
 
-function questionInfo(props) {
+function questionInfo({logo, label, count}) {
 
   const imgStyle = {
     width: "42px",
@@ -28,10 +28,10 @@ function questionInfo(props) {
   return (
     <Paper elevation={0} style={{marginLeft: "15px"}}>
       <Grid container direction="row" alignItems="end">
-        <img src={props.logo} style={imgStyle} />
-        <p style={countStyle}> {props.count} </p>
+        <img src={logo} style={imgStyle} />
+        <p style={countStyle}> {count} </p>
       </Grid>
-      <p style={secondaryText}> {props.label} </p>
+      <p style={secondaryText}> {label} </p>
     </Paper>
   )
 }
@@ -43,7 +43,8 @@ function attendees(props) {
     backgroundColor: "#FAFAFA",
     marginLeft: "30px",
     textAlign: "center",
-    borderRadius: "7.5px"
+    borderRadius: "7.5px",
+    alignSelf: "flex-end",
   }
 
   const countStyle = {
@@ -70,49 +71,42 @@ function attendees(props) {
   )
 }
 
-function Classa() {
+function Classa(props) {
 
   const boxStyle = {
     margin: "10px",
-    width: "500px",
     borderRadius: "7.5px",
     boxShadow: "0px 2px 4px 0 rgba(0, 0, 0, 0.25)",
     padding: "10px"
   }
 
   const dateStyle = {
-    fontSize: "18px",
+    fontSize: "1.5rem",
     fontFamily: 'Lato',
     color: '#414141'
   }
 
   const [totalQuestion, setTotalQuestion] = useState({
     label: "Total Question",
-    count: "15",
     logo: Logo
   });
 
   const [flaggedQuestion, setFlaggedQuestion] = useState({
     label: "Flagged Question",
-    count: "15",
     logo: Logo1
   });
 
-  const [attendeesCount, setAttendeesCount] = useState({
-    count: 72
-  })
-
   return (
     <Paper style={boxStyle} elevation={0}>
-      <Grid container direction="row" alignItems="center">
+      <Grid style={{display: "flex", justifyContent: "space-between"}} container direction="row" alignItems="center">
         <Paper elevation={0}>
-          <p style={dateStyle} > Wed, 13 Dec 2020 </p>
+          <p style={dateStyle} > {props.date} </p>
           <Grid container direction="row" alignItems="center">
-            {questionInfo(totalQuestion)}
-            {questionInfo(flaggedQuestion)}
+            {questionInfo({logo: Logo, label: "Total Question", count: props.totalQuestion})}
+            {questionInfo({logo: Logo1, label: "flagged Question", count: props.flaggedQuestion})}
           </Grid>
         </Paper>
-        {attendees(attendeesCount)}
+        {attendees({count: props.attend})}
       </Grid>
     </Paper>
   )
