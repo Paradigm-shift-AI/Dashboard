@@ -8,7 +8,6 @@ import Link from "@material-ui/core/Link";
 import Course from "./components/Course";
 import Navbar from "./components/Navbar";
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">

@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Class from "./components/Class";
 import Navbar from "./components/Navbar";
-import CourseContext  from "./Context";
 
 function Copyright() {
   return (
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+export default function Lectures() {
   const classes = useStyles();
 
   return (

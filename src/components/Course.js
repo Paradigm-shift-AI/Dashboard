@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect,useContext} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -12,9 +12,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import Grid from "@material-ui/core/Grid";
 import Divider from '@material-ui/core/Divider';
 import CardImg from "../img/bookclub.jpg";
-import { CourseProvider } from "../Context";
 import ClassImprove from '../components/ClassImprove.js';
-import { withRouter } from 'react-router-dom';
+import {withRouter} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
@@ -40,17 +39,15 @@ const useStyles = makeStyles((theme) => ({
 
 function Course(props) {
   const classes = useStyles();
-  const [course, setCourse] = React.useState("");
   const handleChange = (event) => {
     setCourse(event.target.value);
   };
   const data = [{classname:"MySQL", asked: 14, flagged: 3, Date: "Wed, 13 Dec 2020", Attendance: "53"},
   {classname:"Cross Join", asked: 15, flagged: 3, Date: "Wed, 15 Dec 2020", Attendance: "57"}]
   const courses = ["DBMS", "OS"];
-  const [classname, setClassname] = React.useState("class");
+  const [course, setCourse] = React.useState(courses[0]);
 
   return (
-    <CourseProvider value={classname}>
     <Paper className={classes.fixedHeight}>
       <FormControl variant="outlined" className={classes.formControl} >
         <InputLabel id="demo-simple-select-outlined-label">Course</InputLabel>
@@ -61,9 +58,6 @@ function Course(props) {
           onChange={handleChange}
           label="Course"
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {courses.map((el) => (
             <MenuItem value={el}>{el}</MenuItem>
           ))}
@@ -72,14 +66,12 @@ function Course(props) {
       <Divider />
       <Grid container spacing={2}>
         {data.map((el) => (
-          <Grid style={{cursor: "pointer"}} item md={6} key={el.Date} onClick={() => {setClassname(el.classname); props.history.push("/lectures") }}>
+          <Grid style={{cursor: "pointer"}} item md={6} key={el.Date} onClick={(e) => { props.history.push(`/lectures/${course}/${el.Date}`) }}>
             <ClassImprove date={el.Date} attend={el.Attendance} totalQuestion={el.asked} flaggedQuestion={el.flagged}/>
           </Grid>
         ))}
       </Grid>
-
     </Paper>
-    </CourseProvider>
   );
 }
 

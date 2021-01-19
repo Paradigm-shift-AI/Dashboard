@@ -1,13 +1,14 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignIn from "./SignIn";
 import Dashboard from "./Dashboard";
-import Classa from "./components/ClassImprove"
 import Admin from "./Admin";
 import Lectures from "./Lectures";
 
+
 function App() {
+
   return (
     <Router>
       <Switch>
@@ -17,11 +18,9 @@ function App() {
         <Route path="/admin">
           <Admin />
         </Route>
-        <Route path="/lectures">
-          <Lectures />
-        </Route>
+        <Route path="/lectures/:course/:date" component={(props) => <Lectures {...props} />}/>
         <Route path="/">
-          <Classa />
+          <SignIn />
         </Route>
       </Switch>
     </Router>
