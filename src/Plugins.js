@@ -1,13 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import Link from "@material-ui/core/Link";
-import Course from "./components/Course";
 import Navbar from "./components/Navbar";
-import Copyright from './components/Copyright';
+import Copyright from "./components/Copyright";
+import Title from "./components/Title";
+import Paper from "@material-ui/core/Paper";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -24,9 +23,15 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
+  fixedHeight: {
+    minheight: 720,
+    padding: "50px",
+    width: "70%",
+    marginLeft: "15%",
+  },
 }));
 
-export default function Dashboard() {
+export default function Plugins() {
   const classes = useStyles();
 
   return (
@@ -37,7 +42,9 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
-              <Course />
+              <Paper className={classes.fixedHeight}>
+                <Title>Install Plugins</Title>
+              </Paper>
             </Grid>
           </Grid>
           <Box pt={4}>

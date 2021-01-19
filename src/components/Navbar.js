@@ -7,7 +7,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const drawerWidth = 240;
 
@@ -114,26 +114,14 @@ export default function Navbar() {
           noWrap
           className={classes.title}
         >
-          Dashboard
+          Paradigm
         </Typography>
         <IconButton color="inherit">
           <Avatar alt="Remy Sharp" src="" />
-          <Typography
-            component="h6"
-            variant="button"
-            color="inherit"
-            noWrap
-            style={{ paddingInline: "10px" }}
-          >
-            Name
-          </Typography>
         </IconButton>
-        <Button
-          variant="outlined"
-          style={{ borderColor: "white", color: "white" }}
-        >
-          LogOut
-        </Button>
+        <IconButton color="inherit" href="/">
+          <ExitToAppIcon fontSize="large"/>
+        </IconButton>
       </Toolbar>
     </AppBar>
     </div>);

@@ -7,21 +7,8 @@ import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
 import Class from "./components/Class";
 import Navbar from "./components/Navbar";
+import Copyright from './components/Copyright';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,12 +23,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
-  },
-  fixedHeight: {
-    minheight: 720,
-    padding: "50px",
-    width: "70%",
-    marginLeft: "15%",
   },
 }));
 

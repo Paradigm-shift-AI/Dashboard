@@ -4,22 +4,18 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
-import Divider from "@material-ui/core/Divider";
 import Title from "./Title";
 import Grid from "@material-ui/core/Grid";
 import Chip from "@material-ui/core/Chip";
-import ToggleButton from '@material-ui/lab/ToggleButton';
-import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
-import DoneIcon from '@material-ui/icons/Done';
-import CloseIcon from '@material-ui/icons/Close';
 import {withRouter} from "react-router-dom";
+import QuesCard from "./QuesCard";
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
-    height: 720,
-    padding: "40px",
+    minheight: 720,
+    padding: "50px",
     width: "70%",
-    marginLeft: "15%"
+    marginLeft: "15%",
   },
   card: {
     margin: "20px",
@@ -34,7 +30,6 @@ function Class(props) {
   const classes = useStyles();
   const strongtopics = ["Union", "Joins", "Cross Joins"];
   const weaktopics = ["Inner Join"];
-  const [tick, setTick] = React.useState('');
 
   return (
     <Paper className={classes.fixedHeight}>
@@ -65,41 +60,7 @@ function Class(props) {
           </Paper>
         </Grid>
       </Grid>
-      <Paper variant="outlined" className={classes.card}>
-        <Grid container spacing={3}>
-          <Grid item xs={8} md={8} lg={8}>
-            <Title>Ques:</Title>
-            <Typography>MongoDB is an example of SQL?</Typography>
-            <br/>
-            <Title>Ans:</Title>
-            <Typography>False</Typography>
-          </Grid>
-          <Grid item xs={4} md={4} lg={4}>
-            <div style={{display:"flex"}}>
-            <ToggleButtonGroup
-              value={tick}
-              exclusive
-              // onChange={handleTick}
-              aria-label="flagged"
-              style={{float:"right", marginRight:"30px"}}
-            >
-              <ToggleButton value="true" aria-label="right">
-                <DoneIcon style={{color:"green"}} />
-              </ToggleButton>
-              <ToggleButton value="false" aria-label="wrong">
-                <CloseIcon style={{color:"red"}}/>
-              </ToggleButton>
-            </ToggleButtonGroup>
-            </div>
-            <br/>
-            <Typography >
-              No. of correct: 5
-              <br/>
-              No. of incorrect: 6
-            </Typography>
-          </Grid>
-        </Grid>
-      </Paper>
+      <QuesCard />
     </Paper>
   );
 }

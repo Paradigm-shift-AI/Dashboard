@@ -21,22 +21,9 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Navbar from "./components/Navbar";
-import Title from "./components/Title"
+import Title from "./components/Title";
+import Copyright from './components/Copyright';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "50px",
   },
   button: {
-    marginTop: "50px",
-  }
+    marginTop: "30px",
+  },
 }));
 
 function createData(name, calories, fat, carbs, protein) {
@@ -158,7 +145,7 @@ export default function Admin() {
                       </Grid>
                       <Grid item xs={12} md={4} lg={4}>
                         <Paper variant="outlined">
-                        <Typography align="center">Teacher</Typography>
+                          <Typography align="center">Teacher</Typography>
                           <List
                             dense
                             component="div"
@@ -239,6 +226,14 @@ export default function Admin() {
                             <ListItem />
                           </List>
                         </Paper>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          onClick={() => setCreateClass(true)}
+                        >
+                          Submit
+                        </Button>
                       </Grid>
                     </Grid>
                   </Paper>
