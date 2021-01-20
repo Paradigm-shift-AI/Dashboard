@@ -7,7 +7,9 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import Icon from '@material-ui/core/Icon';
+import LogoIcon from "../img/online-education.svg";
 
 const drawerWidth = 240;
 
@@ -88,6 +90,14 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 720,
   },
+  imageIcon: {
+    display: "flex",
+    height: "inherit",
+    width: "inherit",
+  },
+  iconRoot: {
+    textAlign: "center",
+  },
 }));
 
 export default function Navbar() {
@@ -100,29 +110,35 @@ export default function Navbar() {
     setOpen(false);
   };
   return (
-  <div>
+    <div>
       <CssBaseline />
-    <AppBar
-      position="absolute"
-      className={clsx(classes.appBar, open && classes.appBarShift)}
-    >
-      <Toolbar className={classes.toolbar}>
-        <Typography
-          component="h1"
-          variant="h6"
-          color="inherit"
-          noWrap
-          className={classes.title}
-        >
-          Paradigm
-        </Typography>
-        <IconButton color="inherit">
-          <Avatar alt="Remy Sharp" src="" />
-        </IconButton>
-        <IconButton color="inherit" href="/">
-          <ExitToAppIcon fontSize="large"/>
-        </IconButton>
-      </Toolbar>
-    </AppBar>
-    </div>);
+      <AppBar
+        position="absolute"
+        className={clsx(classes.appBar, open && classes.appBarShift)}
+      >
+        <Toolbar className={classes.toolbar}>
+          <IconButton color="inherit">
+            <Icon classes={{ root: classes.iconRoot }}>
+              <img className={classes.imageIcon} src={LogoIcon} />
+            </Icon>
+          </IconButton>
+          <Typography
+            component="h1"
+            variant="h6"
+            color="inherit"
+            noWrap
+            className={classes.title}
+          >
+            Paradigm
+          </Typography>
+          <IconButton color="inherit">
+            <Avatar alt="Remy Sharp" src="" />
+          </IconButton>
+          <IconButton color="inherit" href="/">
+            <ExitToAppIcon fontSize="large" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }

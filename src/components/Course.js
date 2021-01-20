@@ -14,7 +14,9 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { ListItemText, ListItemIcon } from "@material-ui/core";
-import BookIcon from '@material-ui/icons/Book';
+import BookIcon from "@material-ui/icons/Book";
+import Icon from '@material-ui/core/Icon';
+import BrainIcon from "../img/brain.svg";
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
@@ -41,8 +43,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
-    marginRight: "10px"
-  }
+    marginRight: "10px",
+  },
+  item: {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+  imageIcon: {
+    display: 'flex',
+    height: 'inherit',
+    width: 'inherit'
+  },
+  iconRoot: {
+    textAlign: "center",
+  },
 }));
 
 function Course(props) {
@@ -94,8 +109,17 @@ function Course(props) {
             >
               {courses.map((el) => (
                 <MenuItem value={el}>
-                  <BookIcon className={classes.icon} style={(el==course)?{visibility:"visible"}:{visibility:"hidden"}}/>
-                  {el}
+                  <div className={classes.item}>
+                    <BookIcon
+                      className={classes.icon}
+                      style={
+                        el == course
+                          ? { visibility: "visible" }
+                          : { visibility: "hidden" }
+                      }
+                    />
+                    {el}
+                  </div>
                 </MenuItem>
               ))}
             </Select>
@@ -110,7 +134,9 @@ function Course(props) {
             aria-label="add more plugins"
             href={`/plugins/${course}`}
           >
-            <AddCircleOutlineIcon />
+            <Icon classes={{ root: classes.iconRoot }}>
+              <img className={classes.imageIcon} src={BrainIcon} />
+            </Icon>
           </IconButton>
         </Grid>
       </Grid>
