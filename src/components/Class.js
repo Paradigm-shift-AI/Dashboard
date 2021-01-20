@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     minheight: 720,
     padding: "50px",
-    width: "70%",
-    marginLeft: "15%",
+    width: "80%",
+    marginLeft: "10%",
   },
   card: {
     margin: "20px",

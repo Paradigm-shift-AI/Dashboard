@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Copyright from "./components/Copyright";
 import Title from "./components/Title";
 import Paper from "@material-ui/core/Paper";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,8 +27,8 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     minheight: 720,
     padding: "50px",
-    width: "70%",
-    marginLeft: "15%",
+    width: "80%",
+    marginLeft: "10%",
   },
 }));
 
@@ -43,7 +44,10 @@ export default function Plugins() {
           <Grid container spacing={3}>
             <Grid item xs={12} md={12} lg={12}>
               <Paper className={classes.fixedHeight}>
-                <Title>Install Plugins</Title>
+                <Title style={{display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',}}>
+      <AddCircleOutlineIcon/>Install Plugins</Title>
               </Paper>
             </Grid>
           </Grid>

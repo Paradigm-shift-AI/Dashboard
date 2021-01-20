@@ -12,21 +12,23 @@ import Title from "./Title";
 import Chip from "@material-ui/core/Chip";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import { ListItemText, ListItemIcon } from "@material-ui/core";
+import BookIcon from '@material-ui/icons/Book';
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     minheight: 720,
     padding: "50px",
-    width: "70%",
-    marginLeft: "15%",
+    width: "80%",
+    marginLeft: "10%",
   },
   formControl: {
-    margin: theme.spacing(0.7),
-    minWidth: 100,
+    margin: theme.spacing(1),
+    minWidth: 240,
   },
   selectEmpty: {
-    marginTop: theme.spacing(0.7),
+    marginTop: theme.spacing(2),
   },
   card: {
     backgroundImage: `url(${CardImg})`,
@@ -38,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
+  icon: {
+    marginRight: "10px"
+  }
 }));
 
 function Course(props) {
@@ -75,7 +80,7 @@ function Course(props) {
         alignItems="center"
         style={{ marginTop: "30px", marginBottom: "30px" }}
       >
-        <Grid md={3}>
+        <Grid md={4}>
           <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel id="demo-simple-select-outlined-label">
               Course
@@ -88,16 +93,23 @@ function Course(props) {
               label="Course"
             >
               {courses.map((el) => (
-                <MenuItem value={el}>{el}</MenuItem>
+                <MenuItem value={el}>
+                  <BookIcon className={classes.icon} style={(el==course)?{visibility:"visible"}:{visibility:"hidden"}}/>
+                  {el}
+                </MenuItem>
               ))}
             </Select>
           </FormControl>
         </Grid>
-        <Grid md={9} className={classes.chips}>
+        <Grid md={8} className={classes.chips}>
           {plugins.map((el) => (
             <Chip label={el} variant="outlined" />
           ))}
-          <IconButton color="primary" aria-label="add more plugins" href={`/plugins/${course}`}>
+          <IconButton
+            color="primary"
+            aria-label="add more plugins"
+            href={`/plugins/${course}`}
+          >
             <AddCircleOutlineIcon />
           </IconButton>
         </Grid>
