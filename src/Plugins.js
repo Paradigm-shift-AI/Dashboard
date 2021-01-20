@@ -9,10 +9,10 @@ import Title from "./components/Title";
 import Paper from "@material-ui/core/Paper";
 import Icon from "@material-ui/core/Icon";
 import BrainIcon from "./img/brain-blue.svg";
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-
+import InputBase from "@material-ui/core/InputBase";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import PluginCard from "./components/PluginCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,11 +54,11 @@ const useStyles = makeStyles((theme) => ({
     width: "40px",
   },
   search: {
-    padding: '2px 4px',
-    display: 'flex',
-    alignItems: 'center',
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
     width: "100%",
-    marginTop: "30px" 
+    marginTop: "30px",
   },
   input: {
     marginLeft: theme.spacing(1),
@@ -76,6 +76,18 @@ const useStyles = makeStyles((theme) => ({
 export default function Plugins() {
   const classes = useStyles();
 
+  const plugins = [
+    {
+      name: "Android Development",
+      version: "2.0.0",
+      downloads: "1220",
+      content:
+        "Most detailed glossary for android development, with RDF mappings for 90% index words.",
+      creator: "vedangj044",
+      install_url: "",
+    },
+  ];
+
   return (
     <div className={classes.root}>
       <Navbar />
@@ -91,7 +103,11 @@ export default function Plugins() {
                   </Icon>
                   <span>Install Plugins</span>
                 </div>
-                <Paper component="form" variant="outlined" className={classes.search}>
+                <Paper
+                  component="form"
+                  variant="outlined"
+                  className={classes.search}
+                >
                   <InputBase
                     className={classes.input}
                     placeholder="Search plugins"
@@ -105,6 +121,16 @@ export default function Plugins() {
                     <SearchIcon />
                   </IconButton>
                 </Paper>
+                {plugins.map((el) => (
+                  <PluginCard
+                    name={el.name}
+                    version={el.version}
+                    downloads={el.downloads}
+                    content={el.content}
+                    creator={el.creator}
+                    install_url={el.install_url}
+                  />
+                ))}
               </Paper>
             </Grid>
           </Grid>

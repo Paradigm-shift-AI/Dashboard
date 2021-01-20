@@ -118,7 +118,7 @@ export default function Navbar() {
       >
         <Toolbar className={classes.toolbar}>
           <IconButton color="inherit">
-            <Icon classes={{ root: classes.iconRoot }}>
+            <Icon classes={{ root: classes.iconRoot }} fontSize="large">
               <img className={classes.imageIcon} src={LogoIcon} />
             </Icon>
           </IconButton>
