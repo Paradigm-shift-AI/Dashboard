@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Icon from '@material-ui/core/Icon';
-import LogoIcon from "../img/online-education.svg";
+import LogoIcon from "../img/online-education.png";
 
 const drawerWidth = 240;
 

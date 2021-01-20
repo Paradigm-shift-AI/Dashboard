@@ -8,13 +8,10 @@ import Copyright from "./components/Copyright";
 import Title from "./components/Title";
 import Paper from "@material-ui/core/Paper";
 import Icon from "@material-ui/core/Icon";
-import BrainIcon from "./img/brain.svg";
+import BrainIcon from "./img/brain-blue.svg";
 import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -48,11 +45,13 @@ const useStyles = makeStyles((theme) => ({
   },
   imageIcon: {
     display: "flex",
-    height: "inherit",
-    width: "inherit",
+    height: "40px",
+    width: "40px",
   },
   iconRoot: {
     textAlign: "center",
+    height: "40px",
+    width: "40px",
   },
   search: {
     padding: '2px 4px',

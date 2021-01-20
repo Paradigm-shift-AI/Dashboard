@@ -14,9 +14,11 @@ import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { ListItemText, ListItemIcon } from "@material-ui/core";
-import BookIcon from "@material-ui/icons/Book";
-import Icon from '@material-ui/core/Icon';
-import BrainIcon from "../img/brain.svg";
+// import BookIcon from "@material-ui/icons/Book";
+import Icon from "@material-ui/core/Icon";
+import BrainIcon from "../img/brain-blue.svg";
+import Button from "@material-ui/core/Button";
+import Book from "../img/book.svg";
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
@@ -42,21 +44,19 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
-  icon: {
-    marginRight: "10px",
-  },
   item: {
     display: "flex",
     alignItems: "center",
     flexWrap: "wrap",
   },
   imageIcon: {
-    display: 'flex',
-    height: 'inherit',
-    width: 'inherit'
+    display: "flex",
+    height: "inherit",
+    width: "inherit",
   },
   iconRoot: {
     textAlign: "center",
+    marginRight: "10px",
   },
 }));
 
@@ -110,14 +110,14 @@ function Course(props) {
               {courses.map((el) => (
                 <MenuItem value={el}>
                   <div className={classes.item}>
-                    <BookIcon
-                      className={classes.icon}
-                      style={
-                        el == course
-                          ? { visibility: "visible" }
-                          : { visibility: "hidden" }
-                      }
-                    />
+                    <Icon classes={{ root: classes.iconRoot }}
+                    style={
+                      el == course
+                        ? { visibility: "visible" }
+                        : { visibility: "hidden" }
+                    }>
+                      <img className={classes.imageIcon} src={Book} />
+                    </Icon>
                     {el}
                   </div>
                 </MenuItem>
@@ -129,15 +129,19 @@ function Course(props) {
           {plugins.map((el) => (
             <Chip label={el} variant="outlined" />
           ))}
-          <IconButton
-            color="primary"
-            aria-label="add more plugins"
+          <Button
+            variant="outlined"
+            color="#505050"
+            className={classes.button}
+            endIcon={
+              <Icon classes={{ root: classes.iconRoot }}>
+                <img className={classes.imageIcon} src={BrainIcon} />
+              </Icon>
+            }
             href={`/plugins/${course}`}
           >
-            <Icon classes={{ root: classes.iconRoot }}>
-              <img className={classes.imageIcon} src={BrainIcon} />
-            </Icon>
-          </IconButton>
+            Add Plugins
+          </Button>
         </Grid>
       </Grid>
       <Grid container spacing={2}>
