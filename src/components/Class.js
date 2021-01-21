@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Chip from "@material-ui/core/Chip";
 import {withRouter} from "react-router-dom";
 import QuesCard from "./QuesCard";
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   fixedHeight: {
@@ -24,6 +25,14 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0.5),
     },
   },
+  item: {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+  queshead: {
+    padding: "1%",
+  }
 }));
 
 function Class(props) {
@@ -60,6 +69,14 @@ function Class(props) {
           </Paper>
         </Grid>
       </Grid>
+        <Grid container className={classes.queshead}>
+          <Grid item xs={12} md={2} lg={2}>
+        Flagged Questions
+        </Grid>
+        <Grid item xs={12} md={10} lg={10} style={{marginTop:"10px"}}>
+        <Divider />
+        </Grid>
+        </Grid>
       <QuesCard />
     </Paper>
   );
