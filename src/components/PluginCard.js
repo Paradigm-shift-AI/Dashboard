@@ -16,8 +16,7 @@ import Account from "../img/account.svg";
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: "90%",
-    margin: "5%",
+    marginTop: "5%",
   },
   media: {
     height: 140,
@@ -47,7 +46,6 @@ export default function PluginCard(props) {
 
   return (
     <Card className={classes.root} elevation={2}>
-      <CardActionArea>
         <CardContent>
           <Grid container spacing={3}>
             <Grid item md={10} lg={10}>
@@ -98,13 +96,13 @@ export default function PluginCard(props) {
                 color="#505050"
                 className={classes.button}
                 startIcon={<GetAppIcon />}
+                disableElevation={true}
               >
                 Install
               </Button>
             </Grid>
           </Grid>
         </CardContent>
-      </CardActionArea>
     </Card>
   );
 }
