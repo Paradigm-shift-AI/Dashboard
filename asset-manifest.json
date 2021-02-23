@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Dashboard/static/css/main.853d0c0b.chunk.css",
+    "main.js": "/Dashboard/static/js/main.6b18b779.chunk.js",
+    "main.js.map": "/Dashboard/static/js/main.6b18b779.chunk.js.map",
+    "runtime-main.js": "/Dashboard/static/js/runtime-main.f1366eba.js",
+    "runtime-main.js.map": "/Dashboard/static/js/runtime-main.f1366eba.js.map",
+    "static/js/2.35ac120b.chunk.js": "/Dashboard/static/js/2.35ac120b.chunk.js",
+    "static/js/2.35ac120b.chunk.js.map": "/Dashboard/static/js/2.35ac120b.chunk.js.map",
+    "static/js/3.819abf02.chunk.js": "/Dashboard/static/js/3.819abf02.chunk.js",
+    "static/js/3.819abf02.chunk.js.map": "/Dashboard/static/js/3.819abf02.chunk.js.map",
+    "index.html": "/Dashboard/index.html",
+    "static/css/main.853d0c0b.chunk.css.map": "/Dashboard/static/css/main.853d0c0b.chunk.css.map",
+    "static/js/2.35ac120b.chunk.js.LICENSE.txt": "/Dashboard/static/js/2.35ac120b.chunk.js.LICENSE.txt",
+    "static/media/account.7f73584e.svg": "/Dashboard/static/media/account.7f73584e.svg",
+    "static/media/book.8d81fcdf.svg": "/Dashboard/static/media/book.8d81fcdf.svg",
+    "static/media/bookclub.60e3454c.jpg": "/Dashboard/static/media/bookclub.60e3454c.jpg",
+    "static/media/brain-blue.9f798787.svg": "/Dashboard/static/media/brain-blue.9f798787.svg",
+    "static/media/cloud.71a61f98.svg": "/Dashboard/static/media/cloud.71a61f98.svg",
+    "static/media/exam.b9a207ce.svg": "/Dashboard/static/media/exam.b9a207ce.svg",
+    "static/media/online-education.3c865504.png": "/Dashboard/static/media/online-education.3c865504.png",
+    "static/media/red-flag.f8ee1ad4.svg": "/Dashboard/static/media/red-flag.f8ee1ad4.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f1366eba.js",
+    "static/js/2.35ac120b.chunk.js",
+    "static/css/main.853d0c0b.chunk.css",
+    "static/js/main.6b18b779.chunk.js"
+  ]
+}
